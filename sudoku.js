@@ -47,4 +47,17 @@ function valid (num, pos, board) {
           return false;
       }
   }
+// Проверка сектора на едиственные числа
+  const boxstr = Math.floor( s/boxSize ) * boxSize;
+  const boxcol = Math.floor( c/boxSize ) * boxSize;
+
+  for (let i = boxstr; i < boxstr + boxSize; i++) {
+      for (let j = boxcol; j < boxcol + boxSize; j++) {
+          if (board[i][j] === num && i !== s && j !== c) {
+              return false;
+          }
+      }
+  }
+
+  return true;
 }
