@@ -29,3 +29,22 @@ module.exports = {
   isSolved,
   prettyBoard,
 };
+
+// Проверка числа на едиственное значение в строке и колонке
+function valid (num, pos, board) {
+  const [s,c] = pos;
+
+ 
+  for (let i = 0; i < size; i++) {
+      if (board[i][c] === num && i !== s) {
+          return false;
+      }
+  }
+
+  
+  for (let i = 0; i < size; i++) {
+      if (board[s][i] === num && i !== c) {
+          return false;
+      }
+  }
+}
